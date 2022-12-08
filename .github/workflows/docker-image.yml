@@ -27,6 +27,6 @@ jobs:
       with:
           push: true
           tags: kcinnayste/humble-realsense:latest
-          platforms: "linux/amd64,linux/arm64"
+          platforms: "linux/amd64" #,linux/arm64"
           no-cache: true
           
