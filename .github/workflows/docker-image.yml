@@ -3,8 +3,6 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 
@@ -29,3 +27,5 @@ jobs:
       with:
           push: true
           tags: kcinnayste/humble-realsense:latest
+          platforms: "linux/amd64,linux/arm64"
+          
