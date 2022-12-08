@@ -67,9 +67,7 @@ RUN rm -rf ${BUILD_DIR}
 ARG OVERLAY_WS
 WORKDIR $OVERLAY_WS
 COPY --from=cacher /tmp/$OVERLAY_WS/src ./src
-#RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
-#    apt-get update && rosdep install -y \
-#    && rm -rf /var/lib/apt/lists/*
+
 
 # build overlay source
 COPY --from=cacher $OVERLAY_WS/src ./src
@@ -77,7 +75,6 @@ ARG OVERLAY_MIXINS="release"
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
     colcon build 
 
-#RUN rm -rf $BUILD_DIR
 
 # source entrypoint setup
 ENV OVERLAY_WS $OVERLAY_WS
